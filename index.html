@@ -950,22 +950,25 @@
     </section>
 
     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
-            <h2 class="section-title">Kontak & Pesanan</h2>
+            <h2 class="section-title">Kontak & Ulasan</h2>
             <div class="contact-container">
                 <div class="contact-form">
                     <h3>Form Ulasan</h3>
-                    <form id="quickOrderForm">
+                    <form id="reviewForm">
                         <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" class="form-control" placeholder="Nama Anda" required>
+                            <label for="reviewName">Nama Lengkap</label>
+                            <input type="text" id="reviewName" class="form-control" placeholder="Nama Anda" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Ulasan</label>
-                            <textarea id="message" class="form-control" rows="3" placeholder=""></textarea>
+                            <label for="reviewMessage">Ulasan Anda</label>
+                            <textarea id="reviewMessage" class="form-control" rows="3" placeholder="Tulis ulasan tentang produk kami..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Kirim ke WhatsApp</button>
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Kirim Ulasan via WhatsApp
+                        </button>
                     </form>
                 </div>
                 
@@ -1049,7 +1052,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 KCW Frozen Food. All Rights Reserved.</p>
+                <p>&copy; Program Studi Bisnis Digital UMS Rappang 2023 x KCW Frozen Food. All Rights Reserved.</p>
                 <p>Jl. Gotong Royong, Tonrong Rijang, Kec. Baranti, Sulawesi Selatan</p>
             </div>
         </div>
@@ -1124,509 +1127,533 @@
     </div>
 
     <script>
-        // Data menu frozen food KCW
-        const menuItems = [
-            {
-                id: 1,
-                name: "Bakso Ayam",
-                description: "Bakso ayam homemade, kenyal dan gurih. Isi 20 pcs (500gr).",
-                price: 35000,
-                image: "menu/baksoayam.jpg"
-            },
-            {
-                id: 2,
-                name: "Bakso Sapi",
-                description: "Bakso sapi premium, kandungan daging tinggi. Isi 15 pcs (500gr).",
-                price: 45000,
-                image: "menu/baksosapi.jpg"
-            },
-            {
-                id: 3,
-                name: "Nugget Kanzler",
-                description: "Nugget ayam merek Kanzler, renyah di luar lembut di dalam. Isi 10 pcs.",
-                price: 40000,
-                image: "menu/nuggetkanzler.jpg"
-            },
-            {
-                id: 4,
-                name: "Kentang Goreng",
-                description: "Kentang goreng siap masak, renyah di luar lembut di dalam. 500gr.",
-                price: 25000,
-                image: "menu/kentanggoreng.jpg"
-            },
-            {
-                id: 5,
-                name: "Sayap Ayam",
-                description: "Sayap ayam frozen, siap diolah dengan bumbu pilihan Anda. 500gr.",
-                price: 30000,
-                image: "menu/sayapayam.jpg"
-            },
-            {
-                id: 6,
-                name: "Sosis Ayam",
-                description: "Sosis ayam dengan kandungan daging tinggi, tanpa pengawet berbahaya. Isi 10 pcs.",
-                price: 35000,
-                image: "menu/sosisayam.jpg"
-            },
-            {
-                id: 7,
-                name: "Sosis Sapi",
-                description: "Sosis sapi premium, rasa original yang lezat. Isi 8 pcs.",
-                price: 40000,
-                image: "menu/sosissapi.jpg"
-            },
-            {
-                id: 8,
-                name: "Paket Kombo Keluarga",
-                description: "Paket berisi bakso ayam, sosis sapi, nugget, dan kentang goreng. Hemat 15%.",
-                price: 120000,
-                image: "menu/baksoayam.jpg"
-            }
-        ];
+       // Data menu frozen food KCW
+    const menuItems = [
+        {
+            id: 1,
+            name: "Bakso Ayam",
+            description: "Bakso ayam homemade, kenyal dan gurih. Isi 20 pcs (500gr).",
+            price: 35000,
+            image: "menu/baksoayam.jpg"
+        },
+        {
+            id: 2,
+            name: "Bakso Sapi",
+            description: "Bakso sapi premium, kandungan daging tinggi. Isi 15 pcs (500gr).",
+            price: 45000,
+            image: "menu/baksosapi.jpg"
+        },
+        {
+            id: 3,
+            name: "Nugget Kanzler",
+            description: "Nugget ayam merek Kanzler, renyah di luar lembut di dalam. Isi 10 pcs.",
+            price: 40000,
+            image: "menu/nuggetkanzler.jpg"
+        },
+        {
+            id: 4,
+            name: "Kentang Goreng",
+            description: "Kentang goreng siap masak, renyah di luar lembut di dalam. 500gr.",
+            price: 25000,
+            image: "menu/kentanggoreng.jpg"
+        },
+        {
+            id: 5,
+            name: "Sayap Ayam",
+            description: "Sayap ayam frozen, siap diolah dengan bumbu pilihan Anda. 500gr.",
+            price: 30000,
+            image: "menu/sayapayam.jpg"
+        },
+        {
+            id: 6,
+            name: "Sosis Ayam",
+            description: "Sosis ayam dengan kandungan daging tinggi, tanpa pengawet berbahaya. Isi 10 pcs.",
+            price: 35000,
+            image: "menu/sosisayam.jpg"
+        },
+        {
+            id: 7,
+            name: "Sosis Sapi",
+            description: "Sosis sapi premium, rasa original yang lezat. Isi 8 pcs.",
+            price: 40000,
+            image: "menu/sosissapi.jpg"
+        },
+        {
+            id: 8,
+            name: "Paket Kombo Keluarga",
+            description: "Paket berisi bakso ayam, sosis sapi, nugget, dan kentang goreng. Hemat 15%.",
+            price: 120000,
+            image: "menu/baksoayam.jpg"
+        }
+    ];
 
-        // State keranjang belanja
-        let cart = JSON.parse(localStorage.getItem('kcwFrozenCart')) || [];
-        const cartCount = document.getElementById('cartCount');
-        const cartItemsContainer = document.getElementById('cartItems');
-        const emptyCartMessage = document.getElementById('emptyCartMessage');
-        const cartTotal = document.getElementById('cartTotal');
-        const checkoutTotal = document.getElementById('checkoutTotal');
-        const checkoutSummary = document.getElementById('checkoutSummary');
+    // State keranjang belanja
+    let cart = JSON.parse(localStorage.getItem('kcwFrozenCart')) || [];
+    const cartCount = document.getElementById('cartCount');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const emptyCartMessage = document.getElementById('emptyCartMessage');
+    const cartTotal = document.getElementById('cartTotal');
+    const checkoutTotal = document.getElementById('checkoutTotal');
+    const checkoutSummary = document.getElementById('checkoutSummary');
 
-        // DOM Elements
-        const cartIcon = document.getElementById('cartIcon');
-        const footerCartBtn = document.getElementById('footerCartBtn');
-        const cartPopup = document.getElementById('cartPopup');
-        const closeCartPopup = document.getElementById('closeCartPopup');
-        const clearCartBtn = document.getElementById('clearCart');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-        const checkoutPopup = document.getElementById('checkoutPopup');
-        const closeCheckoutPopup = document.getElementById('closeCheckoutPopup');
-        const cancelCheckout = document.getElementById('cancelCheckout');
-        const checkoutForm = document.getElementById('checkoutForm');
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        const quickOrderForm = document.getElementById('quickOrderForm');
+    // DOM Elements
+    const cartIcon = document.getElementById('cartIcon');
+    const footerCartBtn = document.getElementById('footerCartBtn');
+    const cartPopup = document.getElementById('cartPopup');
+    const closeCartPopup = document.getElementById('closeCartPopup');
+    const clearCartBtn = document.getElementById('clearCart');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const checkoutPopup = document.getElementById('checkoutPopup');
+    const closeCheckoutPopup = document.getElementById('closeCheckoutPopup');
+    const cancelCheckout = document.getElementById('cancelCheckout');
+    const checkoutForm = document.getElementById('checkoutForm');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const reviewForm = document.getElementById('reviewForm'); // Perbaikan: gunakan reviewForm, bukan quickOrderForm
 
-        // WhatsApp number dengan format internasional
-        const whatsappNumber = "6285389248806"; // Format: 62 (kode Indonesia) + 85389248806
+    // WhatsApp number dengan format internasional
+    const whatsappNumber = "6285389248806"; // Format: 62 (kode Indonesia) + 85389248806
 
-        // Inisialisasi menu
-        function initMenu() {
-            const menuGrid = document.getElementById('menuGrid');
-            
-            menuItems.forEach(item => {
-                const menuItem = document.createElement('div');
-                menuItem.className = 'menu-item';
-                menuItem.innerHTML = `
-                    <div class="menu-img" style="background-image: url('${item.image}')"></div>
-                    <div class="menu-content">
-                        <h3 class="menu-title">${item.name}</h3>
-                        <p class="menu-desc">${item.description}</p>
-                        <div class="menu-price">Rp ${item.price.toLocaleString('id-ID')}</div>
-                        <div class="menu-actions">
-                            <div class="quantity-control">
-                                <button class="qty-btn minus" data-id="${item.id}">-</button>
-                                <span class="qty" id="qty-${item.id}">0</span>
-                                <button class="qty-btn plus" data-id="${item.id}">+</button>
-                            </div>
-                            <button class="btn btn-outline add-to-cart" data-id="${item.id}">Tambah</button>
+    // Inisialisasi menu
+    function initMenu() {
+        const menuGrid = document.getElementById('menuGrid');
+        
+        menuItems.forEach(item => {
+            const menuItem = document.createElement('div');
+            menuItem.className = 'menu-item';
+            menuItem.innerHTML = `
+                <div class="menu-img" style="background-image: url('${item.image}')"></div>
+                <div class="menu-content">
+                    <h3 class="menu-title">${item.name}</h3>
+                    <p class="menu-desc">${item.description}</p>
+                    <div class="menu-price">Rp ${item.price.toLocaleString('id-ID')}</div>
+                    <div class="menu-actions">
+                        <div class="quantity-control">
+                            <button class="qty-btn minus" data-id="${item.id}">-</button>
+                            <span class="qty" id="qty-${item.id}">0</span>
+                            <button class="qty-btn plus" data-id="${item.id}">+</button>
                         </div>
+                        <button class="btn btn-outline add-to-cart" data-id="${item.id}">Tambah</button>
                     </div>
-                `;
-                menuGrid.appendChild(menuItem);
-            });
-            
-            // Update quantity display from cart
-            updateQuantityDisplay();
-            
-            // Add event listeners for quantity buttons
-            document.querySelectorAll('.qty-btn.plus').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const id = parseInt(this.getAttribute('data-id'));
-                    increaseQuantity(id);
-                });
-            });
-            
-            document.querySelectorAll('.qty-btn.minus').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const id = parseInt(this.getAttribute('data-id'));
-                    decreaseQuantity(id);
-                });
-            });
-            
-            document.querySelectorAll('.add-to-cart').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const id = parseInt(this.getAttribute('data-id'));
-                    addToCart(id);
-                });
-            });
-        }
-
-        // Update cart count
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-        }
-
-        // Update quantity display on menu
-        function updateQuantityDisplay() {
-            cart.forEach(item => {
-                const qtyElement = document.getElementById(`qty-${item.id}`);
-                if (qtyElement) {
-                    qtyElement.textContent = item.quantity;
-                }
-            });
-        }
-
-        // Add item to cart
-        function addToCart(id) {
-            const menuItem = menuItems.find(item => item.id === id);
-            const existingItem = cart.find(item => item.id === id);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: menuItem.id,
-                    name: menuItem.name,
-                    price: menuItem.price,
-                    quantity: 1
-                });
-            }
-            
-            updateCartCount();
-            updateQuantityDisplay();
-            saveCartToLocalStorage();
-            
-            // Show confirmation
-            showNotification(`${menuItem.name} ditambahkan ke keranjang`);
-        }
-
-        // Increase quantity
-        function increaseQuantity(id) {
-            const existingItem = cart.find(item => item.id === id);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                addToCart(id);
-                return;
-            }
-            
-            updateCartCount();
-            updateQuantityDisplay();
-            saveCartToLocalStorage();
-        }
-
-        // Decrease quantity
-        function decreaseQuantity(id) {
-            const existingItemIndex = cart.findIndex(item => item.id === id);
-            
-            if (existingItemIndex !== -1) {
-                if (cart[existingItemIndex].quantity > 1) {
-                    cart[existingItemIndex].quantity -= 1;
-                } else {
-                    cart.splice(existingItemIndex, 1);
-                }
-                
-                updateCartCount();
-                updateQuantityDisplay();
-                saveCartToLocalStorage();
-            }
-        }
-
-        // Save cart to localStorage
-        function saveCartToLocalStorage() {
-            localStorage.setItem('kcwFrozenCart', JSON.stringify(cart));
-        }
-
-        // Show notification
-        function showNotification(message) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background-color: var(--primary);
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                box-shadow: var(--shadow);
-                z-index: 1001;
-                transform: translateX(150%);
-                transition: transform 0.3s ease;
+                </div>
             `;
-            
-            document.body.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 10);
-            
-            // Hide and remove notification after 3 seconds
-            setTimeout(() => {
-                notification.style.transform = 'translateX(150%)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
+            menuGrid.appendChild(menuItem);
+        });
+        
+        // Update quantity display from cart
+        updateQuantityDisplay();
+        
+        // Add event listeners for quantity buttons
+        document.querySelectorAll('.qty-btn.plus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                increaseQuantity(id);
+            });
+        });
+        
+        document.querySelectorAll('.qty-btn.minus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                decreaseQuantity(id);
+            });
+        });
+        
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                addToCart(id);
+            });
+        });
+    }
 
-        // Render cart items
-        function renderCartItems() {
-            cartItemsContainer.innerHTML = '';
-            
-            if (cart.length === 0) {
-                emptyCartMessage.style.display = 'block';
-                cartTotal.textContent = 'Rp 0';
-                return;
+    // Update cart count
+    function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+    }
+
+    // Update quantity display on menu
+    function updateQuantityDisplay() {
+        cart.forEach(item => {
+            const qtyElement = document.getElementById(`qty-${item.id}`);
+            if (qtyElement) {
+                qtyElement.textContent = item.quantity;
+            }
+        });
+    }
+
+    // Add item to cart
+    function addToCart(id) {
+        const menuItem = menuItems.find(item => item.id === id);
+        const existingItem = cart.find(item => item.id === id);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: menuItem.id,
+                name: menuItem.name,
+                price: menuItem.price,
+                quantity: 1
+            });
+        }
+        
+        updateCartCount();
+        updateQuantityDisplay();
+        saveCartToLocalStorage();
+        
+        // Show confirmation
+        showNotification(`${menuItem.name} ditambahkan ke keranjang`);
+    }
+
+    // Increase quantity
+    function increaseQuantity(id) {
+        const existingItem = cart.find(item => item.id === id);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            addToCart(id);
+            return;
+        }
+        
+        updateCartCount();
+        updateQuantityDisplay();
+        saveCartToLocalStorage();
+    }
+
+    // Decrease quantity
+    function decreaseQuantity(id) {
+        const existingItemIndex = cart.findIndex(item => item.id === id);
+        
+        if (existingItemIndex !== -1) {
+            if (cart[existingItemIndex].quantity > 1) {
+                cart[existingItemIndex].quantity -= 1;
+            } else {
+                cart.splice(existingItemIndex, 1);
             }
             
-            emptyCartMessage.style.display = 'none';
-            
-            let total = 0;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.innerHTML = `
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')} x ${item.quantity}</div>
-                    </div>
-                    <div>
-                        <span class="cart-item-total">Rp ${itemTotal.toLocaleString('id-ID')}</span>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(cartItem);
-            });
-            
-            cartTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
-        }
-
-        // Render checkout summary
-        function renderCheckoutSummary() {
-            checkoutSummary.innerHTML = '';
-            
-            if (cart.length === 0) return;
-            
-            let total = 0;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                const summaryItem = document.createElement('div');
-                summaryItem.className = 'cart-item';
-                summaryItem.innerHTML = `
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <div class="cart-item-price">${item.quantity} x Rp ${item.price.toLocaleString('id-ID')}</div>
-                    </div>
-                    <div>
-                        <span class="cart-item-total">Rp ${itemTotal.toLocaleString('id-ID')}</span>
-                    </div>
-                `;
-                checkoutSummary.appendChild(summaryItem);
-            });
-            
-            checkoutTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
-        }
-
-        // Clear cart
-        function clearCart() {
-            cart = [];
             updateCartCount();
             updateQuantityDisplay();
-            renderCartItems();
             saveCartToLocalStorage();
-            showNotification('Keranjang berhasil dikosongkan');
         }
+    }
 
-        // Send order to WhatsApp
-        function sendToWhatsApp(name, address, note) {
-            if (cart.length === 0) {
-                showNotification('Keranjang belanja kosong. Tambahkan item terlebih dahulu.');
-                return;
-            }
+    // Save cart to localStorage
+    function saveCartToLocalStorage() {
+        localStorage.setItem('kcwFrozenCart', JSON.stringify(cart));
+    }
+
+    // Show notification
+    function showNotification(message) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Show notification
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 10);
+        
+        // Hide and remove notification after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(150%)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
+    // Render cart items
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = '';
+        
+        if (cart.length === 0) {
+            emptyCartMessage.style.display = 'block';
+            cartTotal.textContent = 'Rp 0';
+            return;
+        }
+        
+        emptyCartMessage.style.display = 'none';
+        
+        let total = 0;
+        
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
             
-            let message = `Halo KCW Frozen Food, saya ingin memesan:\n\n`;
-            let total = 0;
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')} x ${item.quantity}</div>
+                </div>
+                <div>
+                    <span class="cart-item-total">Rp ${itemTotal.toLocaleString('id-ID')}</span>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+        
+        cartTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    // Render checkout summary
+    function renderCheckoutSummary() {
+        checkoutSummary.innerHTML = '';
+        
+        if (cart.length === 0) return;
+        
+        let total = 0;
+        
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
             
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                message += `- ${item.name} (${item.quantity} x Rp ${item.price.toLocaleString('id-ID')}) = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
-            });
-            
-            message += `\n*Total: Rp ${total.toLocaleString('id-ID')}*\n\n`;
-            message += `Nama: ${name}\n`;
-            message += `Alamat: ${address}\n`;
-            
-            if (note.trim() !== '') {
-                message += `Catatan: ${note}\n`;
-            }
-            
-            message += `\nTerima kasih!`;
-            
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            // Open WhatsApp in new tab
-            window.open(whatsappURL, '_blank');
-            
-            // Clear cart after sending
+            const summaryItem = document.createElement('div');
+            summaryItem.className = 'cart-item';
+            summaryItem.innerHTML = `
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <div class="cart-item-price">${item.quantity} x Rp ${item.price.toLocaleString('id-ID')}</div>
+                </div>
+                <div>
+                    <span class="cart-item-total">Rp ${itemTotal.toLocaleString('id-ID')}</span>
+                </div>
+            `;
+            checkoutSummary.appendChild(summaryItem);
+        });
+        
+        checkoutTotal.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+    }
+
+    // Clear cart
+    function clearCart() {
+        cart = [];
+        updateCartCount();
+        updateQuantityDisplay();
+        renderCartItems();
+        saveCartToLocalStorage();
+        showNotification('Keranjang berhasil dikosongkan');
+    }
+
+    // Send order to WhatsApp
+    function sendToWhatsApp(name, address, note) {
+        if (cart.length === 0) {
+            showNotification('Keranjang belanja kosong. Tambahkan item terlebih dahulu.');
+            return;
+        }
+        
+        let message = `Halo KCW Frozen Food, saya ingin memesan:\n\n`;
+        let total = 0;
+        
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            message += `- ${item.name} (${item.quantity} x Rp ${item.price.toLocaleString('id-ID')}) = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
+        });
+        
+        message += `\n*Total: Rp ${total.toLocaleString('id-ID')}*\n\n`;
+        message += `Nama: ${name}\n`;
+        message += `Alamat: ${address}\n`;
+        
+        if (note.trim() !== '') {
+            message += `Catatan: ${note}\n`;
+        }
+        
+        message += `\nTerima kasih!`;
+        
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Open WhatsApp in new tab
+        window.open(whatsappURL, '_blank');
+        
+        // Clear cart after sending
+        clearCart();
+        
+        // Close popups
+        cartPopup.classList.remove('active');
+        checkoutPopup.classList.remove('active');
+        
+        showNotification('Pesanan berhasil dikirim ke WhatsApp!');
+    }
+
+    // Event Listeners
+    cartIcon.addEventListener('click', () => {
+        renderCartItems();
+        cartPopup.classList.add('active');
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+    });
+
+    footerCartBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        renderCartItems();
+        cartPopup.classList.add('active');
+    });
+
+    closeCartPopup.addEventListener('click', () => {
+        cartPopup.classList.remove('active');
+    });
+
+    clearCartBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+            showNotification('Keranjang sudah kosong');
+            return;
+        }
+        
+        if (confirm('Apakah Anda yakin ingin mengosongkan keranjang?')) {
             clearCart();
-            
-            // Close popups
-            cartPopup.classList.remove('active');
-            checkoutPopup.classList.remove('active');
-            
-            showNotification('Pesanan berhasil dikirim ke WhatsApp!');
         }
+    });
 
-        // Event Listeners
-        cartIcon.addEventListener('click', () => {
-            renderCartItems();
-            cartPopup.classList.add('active');
+    checkoutBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+            showNotification('Keranjang belanja kosong. Tambahkan item terlebih dahulu.');
+            return;
+        }
+        
+        renderCheckoutSummary();
+        cartPopup.classList.remove('active');
+        checkoutPopup.classList.add('active');
+    });
+
+    closeCheckoutPopup.addEventListener('click', () => {
+        checkoutPopup.classList.remove('active');
+    });
+
+    cancelCheckout.addEventListener('click', () => {
+        checkoutPopup.classList.remove('active');
+    });
+
+    checkoutForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('checkoutName').value;
+        const address = document.getElementById('checkoutAddress').value;
+        const note = document.getElementById('checkoutNote').value;
+        
+        sendToWhatsApp(name, address, note);
+    });
+
+    // HAPUS atau KOMENTARI bagian ini karena form pesanan cepat sudah tidak ada
+    // quickOrderForm.addEventListener('submit', (e) => {
+    //     e.preventDefault();
+        
+    //     const name = document.getElementById('name').value;
+    //     const address = document.getElementById('address').value;
+    //     const message = document.getElementById('message').value;
+        
+    //     let whatsappMessage = `Halo KCW Frozen Food, saya ingin memesan:\n\n`;
+    //     whatsappMessage += `Nama: ${name}\n`;
+    //     whatsappMessage += `Alamat: ${address}\n`;
+        
+    //     if (message.trim() !== '') {
+    //         whatsappMessage += `Pesanan: ${message}\n`;
+    //     }
+        
+    //     whatsappMessage += `\nTerima kasih!`;
+        
+    //     const encodedMessage = encodeURIComponent(whatsappMessage);
+    //     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+    //     window.open(whatsappURL, '_blank');
+        
+    //     // Reset form
+    //     quickOrderForm.reset();
+        
+    //     showNotification('Form pesanan berhasil dikirim ke WhatsApp!');
+    // });
+
+    // Form Ulasan - Mengirim ke WhatsApp
+    reviewForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('reviewName').value;
+        const review = document.getElementById('reviewMessage').value;
+        
+        let whatsappMessage = `Halo KCW Frozen Food, saya ingin memberikan ulasan:\n\n`;
+        whatsappMessage += `Nama: ${name}\n`;
+        whatsappMessage += `Ulasan: ${review}\n\n`;
+        whatsappMessage += `Terima kasih atas pelayanannya!`;
+        
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappURL, '_blank');
+        
+        // Reset form
+        reviewForm.reset();
+        
+        showNotification('Ulasan berhasil dikirim ke WhatsApp!');
+    });
+
+    // Hamburger menu toggle
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
         });
+    });
 
-        footerCartBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            renderCartItems();
-            cartPopup.classList.add('active');
-        });
-
-        closeCartPopup.addEventListener('click', () => {
-            cartPopup.classList.remove('active');
-        });
-
-        clearCartBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                showNotification('Keranjang sudah kosong');
-                return;
-            }
-            
-            if (confirm('Apakah Anda yakin ingin mengosongkan keranjang?')) {
-                clearCart();
+    // Close popups when clicking outside
+    document.querySelectorAll('.popup-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
             }
         });
+    });
 
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                showNotification('Keranjang belanja kosong. Tambahkan item terlebih dahulu.');
-                return;
-            }
-            
-            renderCheckoutSummary();
-            cartPopup.classList.remove('active');
-            checkoutPopup.classList.add('active');
-        });
-
-        closeCheckoutPopup.addEventListener('click', () => {
-            checkoutPopup.classList.remove('active');
-        });
-
-        cancelCheckout.addEventListener('click', () => {
-            checkoutPopup.classList.remove('active');
-        });
-
-        checkoutForm.addEventListener('submit', (e) => {
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('checkoutName').value;
-            const address = document.getElementById('checkoutAddress').value;
-            const note = document.getElementById('checkoutNote').value;
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
-            sendToWhatsApp(name, address, note);
-        });
-
-        quickOrderForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const address = document.getElementById('address').value;
-            const message = document.getElementById('message').value;
-            
-            let whatsappMessage = `Halo KCW Frozen Food, saya ingin memesan:\n\n`;
-            whatsappMessage += `Nama: ${name}\n`;
-            whatsappMessage += `Alamat: ${address}\n`;
-            
-            if (message.trim() !== '') {
-                whatsappMessage += `Pesanan: ${message}\n`;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
-            
-            whatsappMessage += `\nTerima kasih!`;
-            
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-            
-            window.open(whatsappURL, '_blank');
-            
-            // Reset form
-            quickOrderForm.reset();
-            
-            showNotification('Form pesanan berhasil dikirim ke WhatsApp!');
         });
+    });
 
-        // Hamburger menu toggle
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
-        // Close popups when clicking outside
-        document.querySelectorAll('.popup-overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                }
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', () => {
-            initMenu();
-            updateCartCount();
-            renderCartItems();
-        });
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', () => {
+        initMenu();
+        updateCartCount();
+        renderCartItems();
+    });
     </script>
 </body>
 </html>
